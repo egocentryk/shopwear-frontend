@@ -4,7 +4,6 @@ const unauthorizedRoutes = ['/auth/login', '/auth/signup']
 
 export function middleware(request: NextRequest) {
   const auth = request.cookies.get('Authentication')?.value
-  console.log('middleware')
 
   if (
     !auth &&
@@ -12,7 +11,6 @@ export function middleware(request: NextRequest) {
       request.nextUrl.pathname.startsWith(route),
     )
   ) {
-    console.log('Redirecting to login')
     return Response.redirect(new URL('/auth/login', request.url))
   }
 }
