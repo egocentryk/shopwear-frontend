@@ -1,11 +1,7 @@
-import Image from "next/image";
-import getProfile from "./get-profile"
+import CreateProductFab from "./products/create-product-fab"
 
 export default async function Home() {
-  const profile = await getProfile();
-
-  console.log(profile)
   return (
-    <></>
+    <CreateProductFab />
   );
 }
