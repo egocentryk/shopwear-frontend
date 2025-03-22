@@ -2,7 +2,7 @@
 
 import { Box, Button, Modal, Stack, TextField } from "@mui/material"
 import { useState } from "react"
-import { FormResponse } from "../common/form-response.interface"
+import { FormResponse } from "@/app/common/form-response.interface"
 import createProduct from "./create-product"
 
 const styles = {
