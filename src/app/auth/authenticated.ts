@@ -1,7 +1,8 @@
 import { cookies } from 'next/headers'
 import { AUTHENTICATION_COOKIE } from './auth-cookie'
 
-export default function authenticated() {
-  // @ts-expect-error
-  return !!cookies().get(AUTHENTICATION_COOKIE)?.value
+export default async function authenticated() {
+  const cookieStore = await cookies()
+  const authCookie = cookieStore.get(AUTHENTICATION_COOKIE)
+  return !!authCookie?.value
 }

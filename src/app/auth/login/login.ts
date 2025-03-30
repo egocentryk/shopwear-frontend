@@ -24,17 +24,17 @@ export default async function login(
     return { error: getErrorMessage(parsedRes) }
   }
 
-  setAuthCookie(res)
+  await setAuthCookie(res)
   redirect('/')
 }
 
-const setAuthCookie = (response: Response) => {
+const setAuthCookie = async (response: Response) => {
   const setCookieHeader = response.headers.get('Set-Cookie')
 
   if (setCookieHeader) {
     const token = setCookieHeader.split(';')[0].split('=')[1]
-    // @ts-expect-error
-    cookies().set({
+    const cookieStore = await cookies()
+    cookieStore.set({
       name: AUTHENTICATION_COOKIE,
       value: token,
       secure: true,
