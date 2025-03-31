@@ -1,9 +1,9 @@
-'use client'
+"use client"
 
 import { Box, Button, Modal, Stack, TextField } from "@mui/material"
 import { useState } from "react"
 import { FormResponse } from "@/app/common/form-response.interface"
-import createProduct from "./create-product"
+import createProduct from "../actions/create-product"
 
 const styles = {
   position: 'absolute',
