@@ -3,7 +3,10 @@ import { Grid } from '@mui/material'
 import Product from "./product"
 
 export default async function Products() {
-  const products = await getProducts()
+  const response = await getProducts()
+  
+  const products = Array.isArray(response) ? response : []
+
   return (
     <Grid container spacing={3}>
       {products.map(product => (
